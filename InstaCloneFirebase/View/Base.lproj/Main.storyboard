@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Upload-->
         <scene sceneID="TRT-G6-5qw">
             <objects>
-                <viewController id="wsI-BE-QOS" sceneMemberID="viewController">
+                <viewController id="wsI-BE-QOS" customClass="UploadViewController" customModule="InstaCloneFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XoJ-35-24n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +25,43 @@
             </objects>
             <point key="canvasLocation" x="-473" y="94"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="YjH-xK-54d">
+            <objects>
+                <viewController id="bMk-Hn-HkM" customClass="SettingsViewController" customModule="InstaCloneFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aF1-Mk-sCq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHx-yl-9XU">
+                                <rect key="frame" x="140" y="360" width="112" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="LOGOUT">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButton:" destination="bMk-Hn-HkM" eventType="touchUpInside" id="5aZ-hI-Qof"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ha9-SZ-Osv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="s.circle.fill" catalog="system" id="7vN-ya-ukB"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="YPf-MW-mYB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ELt-w0-LFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-431.29770992366412" y="759.85915492957747"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="ugT-hc-2Dc">
             <objects>
-                <viewController id="9Gh-BG-gMv" sceneMemberID="viewController">
+                <viewController id="9Gh-BG-gMv" customClass="FeedViewController" customModule="InstaCloneFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ttd-Wi-qcT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,6 +87,7 @@
                     <connections>
                         <segue destination="9Gh-BG-gMv" kind="relationship" relationship="viewControllers" id="n8G-6m-EIu"/>
                         <segue destination="wsI-BE-QOS" kind="relationship" relationship="viewControllers" id="CgY-E5-taW"/>
+                        <segue destination="bMk-Hn-HkM" kind="relationship" relationship="viewControllers" id="DEX-pK-7kN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJ6-gk-vBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -139,6 +174,7 @@
                             <constraint firstItem="lL5-pe-bt6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="zVI-XY-t6G"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6gU-b1-otc"/>
                     <connections>
                         <outlet property="emailText" destination="lL5-pe-bt6" id="NXK-JT-nZK"/>
                         <outlet property="passwordText" destination="dXL-4m-I2d" id="Zlg-dK-Nd3"/>
@@ -152,7 +188,11 @@
     </scenes>
     <resources>
         <image name="f.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="s.circle.fill" catalog="system" width="128" height="123"/>
         <image name="u.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
