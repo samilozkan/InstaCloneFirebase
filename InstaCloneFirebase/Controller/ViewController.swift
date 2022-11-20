@@ -20,11 +20,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
 
     
     @IBAction func signinButton(_ sender: Any) {
-        performSegue(withIdentifier: "toTabBar", sender: nil)
+        
+        if emailText.text != "" && passwordText.text != "" {
+            Auth.auth().signIn(withEmail: emailText.text!,password: passwordText.text!) { (authData, error) in
+                if error != nil {
+                    self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error") //firebase hata mesajlarını otomatik getiriyor.
+                }else{
+                    
+                    self.performSegue(withIdentifier: "toTabBar", sender: nil)
+                }
+            }
+        }else{
+            makeAlert(titleInput: "Error", messageInput: "Username or Password is not correct")
+        }
+        
     
     }
     
